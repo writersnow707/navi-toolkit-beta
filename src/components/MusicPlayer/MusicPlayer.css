@@ -1,0 +1,9 @@
+.music-player {
+  position: relative; /* 자식 요소에게 상대 위치를 제공합니다. */
+}
+
+.play-button {
+  position: absolute; /* 절대 위치를 사용하여 상위 요소에 대해 상대적으로 배치됩니다. */
+  top: 0; /* 상단에 위치하도록 설정합니다. */
+  left: 0; /* 좌측에 위치하도록 설정합니다. */
+}

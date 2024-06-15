@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import Modal from "react-modal";
 
-const RandomNumberComponent = () => {
+Modal.setAppElement("#root");
+
+const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [number, setNumber] = useState(null);
 
   const generateRandomNumber = () => {
@@ -8,12 +12,25 @@ const RandomNumberComponent = () => {
     setNumber(randomNumber);
   };
 
+  const openModal = () => {
+    setIsOpen(true);
+    generateRandomNumber();
+  };
+
+  const reset = () => {
+    setNumber(null);
+  };
+
   return (
     <div>
-      <button onClick={generateRandomNumber}>오늘의 발표자는?</button>
-      {number && <p>발표자: {number}번</p>}
+      <button onClick={openModal}>오늘의 주인공은?</button>
+      {number && (
+        <div>
+          <h2>주인공 번호: {number}</h2>
+        </div>
+      )}
     </div>
   );
 };
 
-export default RandomNumberComponent;
+export default App;
